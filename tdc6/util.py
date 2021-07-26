@@ -7,9 +7,9 @@ import itertools
 
 import numpy as np
 
-import tdc_defines as defines
-from tdc_backend import Event, TDC_ERROR_TEMPLATE, TRecievedData
-from tdc6calibration import TCalibrationHelper
+from . import tdc_defines as defines
+from .tdc_backend import Event, TDC_ERROR_TEMPLATE, TRecievedData
+from .calibration import TCalibrationHelper
 
 
 DEBUG = True

@@ -3,8 +3,6 @@ import os
 import numpy as np
 from matplotlib import pyplot as plt
 
-import tdc_defines
-
 
 def FWHM(X, Y):
     half_max = np.max(Y) / 2.

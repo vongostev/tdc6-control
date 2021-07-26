@@ -5,8 +5,9 @@ import argparse
 
 import ftd2xx
 
-import tdc6util
-import tdc_backend
+import tdc6.util as tdc6util
+import tdc6.tdc_backend as tdc_backend
+import tdc6.test as tdc6test
 
 if __name__ != "__main__":
     sys.exit()
@@ -72,7 +73,6 @@ elif ARGS.calibration:
     sys.stderr.write(
         "\nCALIBRATION DATA FOR CHANNELS %s IS STORED\n" % ','.join(ARGS.calibration))
 elif ARGS.test:
-    import tdc6test
     ch1, ch2 = map(int, ARGS.test)
     t = tdc6test.TDeviceTests(r)
     #t.test_device_function(ch1, ch2)

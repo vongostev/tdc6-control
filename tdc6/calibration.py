@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-
 import matplotlib.pyplot as plt
-import tdc_defines as defines
+from . import tdc_defines as defines
 
 DEBUG = True
 

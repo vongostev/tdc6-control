@@ -40,8 +40,8 @@ class ByteConstants(TConstants):
     START = 0xfd
     END = 0xfe
     SHIFT = 0xff
-    #OKREPLY_CODE = b'\xda'
-    #EMPTYCOMM_BYTE = b'\xdb'
+    # OKREPLY_CODE = b'\xda'
+    # EMPTYCOMM_BYTE = b'\xdb'
 
 
 class Commands(TConstants):

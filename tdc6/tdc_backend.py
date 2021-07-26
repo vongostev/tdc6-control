@@ -5,7 +5,7 @@ from decimal import Decimal, getcontext
 import ftd2xx as ftd
 import tdc_defines as defines
 
-from tdc_timeout import SetTimeout, TimeoutError
+from .tdc_timeout import SetTimeout, TimeoutError
 # HIGH PRECISION NUMBERS
 getcontext().prec = 28
 
@@ -14,13 +14,19 @@ USB_ERROR_TEMPLATE = "USB ERROR: %s"
 TDC_ERROR_TEMPLATE = "TDC ERROR: %s"
 OP_ERR = "%s is FAILED"
 
-SHIFT_SYMBOL = lambda c: [
+
+def SHIFT_SYMBOL(c): return [
     defines.ByteConstants.SHIFT, c - defines.ByteConstants.START]
-UNSHIFT_SYMBOL = lambda c: defines.ByteConstants.START + c
-CMD_TEMPLATE = lambda cmd, chsum: bytes(
+
+
+def UNSHIFT_SYMBOL(c): return defines.ByteConstants.START + c
+def CMD_TEMPLATE(cmd, chsum): return bytes(
     [defines.ByteConstants.START, *cmd, chsum, defines.ByteConstants.END])
-FROM_BYTES = lambda x: ":".join("%.02x" % c for c in x)
-UNPACK_NUM = lambda x: x[0] * 0x100 + x[1]
+
+
+def FROM_BYTES(x): return ":".join("%.02x" % c for c in x)
+def UNPACK_NUM(x): return x[0] * 0x100 + x[1]
+
 
 DEBUG = True
 TIME = False
