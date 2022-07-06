@@ -3,8 +3,7 @@ import time
 from decimal import Decimal, getcontext
 
 import ftd2xx as ftd
-import tdc_defines as defines
-
+from . import tdc_defines as defines
 from .tdc_timeout import SetTimeout, TimeoutError
 # HIGH PRECISION NUMBERS
 getcontext().prec = 28
@@ -172,9 +171,9 @@ class TDCDevice:
         except Exception as E:
             raise ftd.DeviceError(USB_ERROR_TEMPLATE % E)
 
-        if self.device.type == ftd.ftd2xx.DEVICE_2232H:
+        if self.device.type == ftd.defines.DEVICE_2232H:
             print("=== FTDI 2232H is used ===")
-        elif self.device.type == ftd.ftd2xx.DEVICE_232R:
+        elif self.device.type == ftd.defines.DEVICE_232R:
             print(
                 """=== FTDI 232R is used ===\n
                 === Working boudrate may be decreased
